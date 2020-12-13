@@ -1,48 +1,29 @@
-import csv
-
-def unitMenu():
-    print("UNITS OF LENGTH")
-    print(" ")
-    print("inches   furlongs    yards")
-    print("rods     miles       fathoms")
-    print("meters   kilometers  feet")
-    print("_____________________________")
 
 
-def grabUnit(txt_file, unitWanted):
-    read= open(txt_file, "r")
-    chart = csv.reader(read)
-    unitDict = {}
-  
-    for row in chart:
-        unitDict[row[0]] = {'amount':row[1]}
+""""
+unitMenu
+    Display all available users of coversion
+    for the user to use in this program
 
-    wanted = unitWanted
-    stringUnit = (unitDict[wanted]['amount'])
-
-
-    floatUnit = float(stringUnit) #convert string to float
-    return floatUnit
+grabUnit
+    Opens the unit.txt 
+    reads the file
+    put data into a dictionary
+    find the wanted unit
+    converts it to a float
+    returns the unit
 
 
-def doMath(unitFrom, unitTo, amount):
-    fromU = grabUnit('Units.txt',unitFrom)
-    toU =  grabUnit('Units.txt',unitTo)
-    length = float(amount)
+doMath
+    uses the grabUnit frunction with "unit.txt" dictionary find the unit to covert from
+    uses grabUnit frunction with "unit.txt" dictionary find the unit to covert from
+    returns the result as a float
 
-    result = (fromU * length )/toU
-
-    return result
-    
-
-
-
-def main():
-    unitMenu()
-    unit_from = input("Units to convert from: ")
-    unit_to = input("Units to convert to: ")
-    amount_yard = input("Enter length in " + unit_from +": ")
-    length = doMath(unit_from,unit_to,amount_yard)
-    print("Length in " + unit_to +": ", round(length, 4))
-
-main()
+main
+    calls the unitMenu function
+    unit_from input from user
+    unit_to input from user
+    amount_yard input from user to provide unit measure for conversion
+    calls doMath function
+    provides final conversion and displays it tot he user
+"""
